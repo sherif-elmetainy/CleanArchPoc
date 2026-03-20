@@ -24,7 +24,7 @@ public readonly partial struct PersonName
     /// </summary>
     [UsedImplicitly]
     public const string RegularExpression =
-        $@"^{LetterExpression}+(?:\-|\'|{LetterExpression})*$";
+        $@"^{LetterExpression}+(?:(?:\-|'){LetterExpression}+|{LetterExpression})*$";
 
     private static string NormalizeInput(string input)
     {

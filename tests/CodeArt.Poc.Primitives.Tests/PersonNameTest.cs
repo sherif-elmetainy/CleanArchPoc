@@ -24,9 +24,30 @@ public class PersonNameTest
     }
     
     [Fact]
+    public void Should_Accept_English_Name_With_Dash()
+    {
+        var result = PersonName.TryFrom("O-Connor");
+        Assert.True(result.IsSuccess);
+    }
+    
+    [Fact]
     public void Should_Accept_Arabic_Name()
     {
         var result = PersonName.TryFrom("شريف");
+        Assert.True(result.IsSuccess);
+    }
+    
+    [Fact]
+    public void Should_Accept_MaxLengthName()
+    {
+        var result = PersonName.TryFrom(new string('a', PersonName.MaxLength));
+        Assert.True(result.IsSuccess);
+    }
+    
+    [Fact]
+    public void Should_Accept_MaxLengthNameWithExtraSpaces()
+    {
+        var result = PersonName.TryFrom(" " + new string('a', PersonName.MaxLength) + " ");
         Assert.True(result.IsSuccess);
     }
     
@@ -81,6 +102,54 @@ public class PersonNameTest
     public void Should_Reject_Numbers()
     {
         var result = PersonName.TryFrom("a1");
+        Assert.False(result.IsSuccess);
+        Assert.Equal(result.Error.ErrorMessage, ValidationErrors.PersonNameInvalid);
+    }
+    
+    [Fact]
+    public void Should_Reject_InitialDash()
+    {
+        var result = PersonName.TryFrom("-john");
+        Assert.False(result.IsSuccess);
+        Assert.Equal(result.Error.ErrorMessage, ValidationErrors.PersonNameInvalid);
+    }
+    
+    [Fact]
+    public void Should_Reject_FinalDash()
+    {
+        var result = PersonName.TryFrom("john-");
+        Assert.False(result.IsSuccess);
+        Assert.Equal(result.Error.ErrorMessage, ValidationErrors.PersonNameInvalid);
+    }
+    
+    [Fact]
+    public void Should_Reject_InitialSingleQuote()
+    {
+        var result = PersonName.TryFrom("'john");
+        Assert.False(result.IsSuccess);
+        Assert.Equal(result.Error.ErrorMessage, ValidationErrors.PersonNameInvalid);
+    }
+    
+    [Fact]
+    public void Should_Reject_FinalSingleQuote()
+    {
+        var result = PersonName.TryFrom("john'");
+        Assert.False(result.IsSuccess);
+        Assert.Equal(result.Error.ErrorMessage, ValidationErrors.PersonNameInvalid);
+    }
+    
+    [Fact]
+    public void Should_Reject_DoubleDash()
+    {
+        var result = PersonName.TryFrom("john--doe");
+        Assert.False(result.IsSuccess);
+        Assert.Equal(result.Error.ErrorMessage, ValidationErrors.PersonNameInvalid);
+    }
+    
+    [Fact]
+    public void Should_Reject_DoubleSingleQuote()
+    {
+        var result = PersonName.TryFrom("john''doe");
         Assert.False(result.IsSuccess);
         Assert.Equal(result.Error.ErrorMessage, ValidationErrors.PersonNameInvalid);
     }
