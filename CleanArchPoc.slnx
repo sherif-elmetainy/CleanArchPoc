@@ -4,5 +4,7 @@
     <File Path=".gitattributes" />
     <File Path=".gitignore" />
     <File Path="CleanArchPoc.sln.DotSettings" />
+    <File Path="Directory.Packages.props" />
   </Folder>
+  <Project Path="src/CodeArt.Poc.Primitives/CodeArt.Poc.Primitives.csproj" />
 </Solution>
