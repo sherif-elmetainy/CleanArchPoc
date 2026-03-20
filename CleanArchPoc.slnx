@@ -7,4 +7,5 @@
     <File Path="Directory.Packages.props" />
   </Folder>
   <Project Path="src/CodeArt.Poc.Primitives/CodeArt.Poc.Primitives.csproj" />
+  <Project Path="tests/CodeArt.Poc.Primitives.Tests/CodeArt.Poc.Primitives.Tests.csproj" />
 </Solution>
