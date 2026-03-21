@@ -60,7 +60,16 @@ namespace CodeArt.Poc.Primitives {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Person name cannot be empty.
+        ///   Looks up a localized string similar to An object ID must be a positive integer..
+        /// </summary>
+        public static string ObjectIdMustBePositive {
+            get {
+                return ResourceManager.GetString("ObjectIdMustBePositive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Person name cannot be empty..
         /// </summary>
         public static string PersonNameCannotBeEmpty {
             get {
@@ -83,6 +92,33 @@ namespace CodeArt.Poc.Primitives {
         public static string PersonNameTooLong {
             get {
                 return ResourceManager.GetString("PersonNameTooLong", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tenant name cannot be empty..
+        /// </summary>
+        public static string TenantNameCannotBeEmpty {
+            get {
+                return ResourceManager.GetString("TenantNameCannotBeEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tenant name can only contain lower case letters and underscore. It must start and end with a lower case latter and cannot have two consecutive underscores..
+        /// </summary>
+        public static string TenantNameInvalid {
+            get {
+                return ResourceManager.GetString("TenantNameInvalid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Length of tenant name cannot exceed {0..
+        /// </summary>
+        public static string TenantNameTooLong {
+            get {
+                return ResourceManager.GetString("TenantNameTooLong", resourceCulture);
             }
         }
     }

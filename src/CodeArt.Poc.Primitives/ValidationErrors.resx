@@ -19,12 +19,24 @@
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
     <data name="PersonNameCannotBeEmpty" xml:space="preserve">
-        <value>Person name cannot be empty</value>
+        <value>Person name cannot be empty.</value>
     </data>
     <data name="PersonNameTooLong" xml:space="preserve">
         <value>Length of person name cannot exceed {0} characters.</value>
     </data>
     <data name="PersonNameInvalid" xml:space="preserve">
         <value>Person name is invalid.</value>
+    </data>
+    <data name="ObjectIdMustBePositive" xml:space="preserve">
+        <value>An object ID must be a positive integer.</value>
+    </data>
+    <data name="TenantNameCannotBeEmpty" xml:space="preserve">
+        <value>Tenant name cannot be empty.</value>
+    </data>
+    <data name="TenantNameInvalid" xml:space="preserve">
+        <value>Tenant name can only contain lower case letters and underscore. It must start and end with a lower case latter and cannot have two consecutive underscores.</value>
+    </data>
+    <data name="TenantNameTooLong" xml:space="preserve">
+        <value>Length of tenant name cannot exceed {0.</value>
     </data>
 </root>

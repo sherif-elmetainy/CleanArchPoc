@@ -1,5 +1,7 @@
 ﻿using System.Text.RegularExpressions;
 
+using CaseConverter;
+
 using JetBrains.Annotations;
 
 using Vogen;
@@ -7,30 +9,17 @@ using Vogen;
 namespace CodeArt.Poc.Primitives;
 
 [ValueObject<string>]
-public readonly partial struct PersonName
+public readonly partial struct TenantName
 {
-    /// <summary>
-    /// Maximum length of person name
-    /// </summary>
-    public const int MaxLength = 60;
-
-    /// <summary>
-    /// Letter sub expression (includes letters in all languages)
-    /// </summary>
-    private const string LetterExpression = @"(?:\s|\p{Ll}|\p{Lu}|\p{Lt}|\p{Lo}|\p{Lm})";
-
-    /// <summary>
-    /// Person's name regular expression
-    /// </summary>
-    [UsedImplicitly]
-    public const string RegularExpression =
-        $@"^{LetterExpression}+(?:(?:\-|'){LetterExpression}+|{LetterExpression})*$";
-
+    public const int MaxLength = 30;
+    public const string RegularExpression = "^[a-z]+(?:_[a-z]+)*$";
+    
     private static string NormalizeInput(string input)
     {
-        return input.Trim();
+        input = input.Trim().ToSnakeCase();
+        return input;
     }
-
+    
     private static Validation Validate(string input)
     {
         switch (input)
@@ -46,7 +35,7 @@ public readonly partial struct PersonName
                 }
         }
     }
-
+    
     [UsedImplicitly]
     public static readonly Regex Regex = GetRegex();
 

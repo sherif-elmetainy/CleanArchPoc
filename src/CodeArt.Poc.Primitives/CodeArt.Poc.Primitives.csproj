@@ -7,7 +7,9 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <PackageReference Include="CaseConverter" />
       <PackageReference Include="JetBrains.Annotations" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore" />
       <PackageReference Include="Vogen" />
       <PackageReference Include="xunit.v3.runner.console">
         <PrivateAssets>all</PrivateAssets>
