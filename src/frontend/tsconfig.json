@@ -21,5 +21,19 @@
     "strictInputAccessModifiers": true,
     "strictTemplates": true
   },
-  "files": []
+  "files": [],
+  "references": [
+    {
+      "path": "./projects/tenants/tsconfig.app.json"
+    },
+    {
+      "path": "./projects/tenants/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/booking/tsconfig.app.json"
+    },
+    {
+      "path": "./projects/booking/tsconfig.spec.json"
+    }
+  ]
 }
