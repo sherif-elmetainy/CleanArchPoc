@@ -1,27 +1,27 @@
-﻿using CodeArt.Poc.Primitives;
+﻿
+using CodeArt.Poc.Core;
+using CodeArt.Poc.Core.Tenants;
 
 using Microsoft.EntityFrameworkCore;
+
 
 namespace CodeArt.Poc.Storage.Common;
 
 public static class EfCoreConventions
 {
     extension (ModelConfigurationBuilder configurationBuilder) {
-        public ModelConfigurationBuilder RegisterAllPrimitives()
+        public void RegisterAllPrimitives()
         {
             configurationBuilder.Properties<PersonName>()
                 .HaveMaxLength(PersonName.MaxLength)
                 .AreUnicode();
-            return configurationBuilder;
         }
         
-        public ModelConfigurationBuilder RegisterAllMainPrimitives()
+        public void RegisterAllMainPrimitives()
         {
             configurationBuilder.Properties<TenantName>()
                 .HaveMaxLength(TenantName.MaxLength)
                 .AreUnicode(false);
-            
-            return configurationBuilder;
         }
     }
 }

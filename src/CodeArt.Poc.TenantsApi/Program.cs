@@ -1,4 +1,3 @@
-using CodeArt.Poc.Infrastructure.Abstractions;
 using CodeArt.Poc.Storage.Common;
 using CodeArt.Poc.TenantsApi;
 using CodeArt.Poc.TenantsApi.Tenants;
@@ -9,7 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.AddServiceDefaults();
 
 builder.AddPostgres(false);
-builder.Services.AddScoped<ITenantsRepository, TenantsRepository>();
+builder.Services.AddStorageServices();
 
 // Configure the JSON options to use the generated context
 builder.Services.ConfigureHttpJsonOptions(options =>

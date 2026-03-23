@@ -21,12 +21,18 @@ namespace CodeArt.Poc.Storage.Postgresql.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("CodeArt.Poc.Entities.Customer", b =>
+            modelBuilder.Entity("CodeArt.Poc.Core.Customers.Customer", b =>
                 {
                     b.Property<long>("Id")
                         .HasColumnType("bigint");
 
-                    b.Property<string>("Name")
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasMaxLength(60)
+                        .IsUnicode(true)
+                        .HasColumnType("character varying(60)");
+
+                    b.Property<string>("LastName")
                         .IsRequired()
                         .HasMaxLength(60)
                         .IsUnicode(true)

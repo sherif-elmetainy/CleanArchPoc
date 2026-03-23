@@ -22,7 +22,7 @@ namespace CodeArt.Poc.Storage.Postgresql.MainMigrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("CodeArt.Poc.Entities.Tenant", b =>
+            modelBuilder.Entity("CodeArt.Poc.Core.Tenants.Tenant", b =>
                 {
                     b.Property<Guid>("Id")
                         .HasColumnType("uuid");

@@ -1,5 +1,5 @@
-﻿using CodeArt.Poc.Entities;
-using CodeArt.Poc.Primitives;
+﻿using CodeArt.Poc.Core;
+using CodeArt.Poc.Core.Customers;
 
 using Microsoft.EntityFrameworkCore;
 

@@ -15,7 +15,8 @@ namespace CodeArt.Poc.Storage.Postgresql.Migrations
                 columns: table => new
                 {
                     Id = table.Column<long>(type: "bigint", nullable: false),
-                    Name = table.Column<string>(type: "character varying(60)", maxLength: 60, nullable: false)
+                    FirstName = table.Column<string>(type: "character varying(60)", maxLength: 60, nullable: false),
+                    LastName = table.Column<string>(type: "character varying(60)", maxLength: 60, nullable: false)
                 },
                 constraints: table =>
                 {

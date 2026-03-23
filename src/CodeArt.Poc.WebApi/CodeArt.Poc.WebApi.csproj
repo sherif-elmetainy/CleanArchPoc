@@ -11,4 +11,8 @@
     <ProjectReference Include="..\CodeArt.Poc.Storage.Common\CodeArt.Poc.Storage.Common.csproj"/>
     <ProjectReference Include="..\CodeArt.Poc.Storage.Postgresql\CodeArt.Poc.Storage.Postgresql.csproj"/>
   </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Properties\launchSettings.json" />
+  </ItemGroup>
 </Project>

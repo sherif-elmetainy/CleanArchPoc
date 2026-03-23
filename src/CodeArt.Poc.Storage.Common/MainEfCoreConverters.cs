@@ -1,6 +1,7 @@
-﻿using CodeArt.Poc.Primitives;
+﻿using Vogen;
 
-using Vogen;
+using TenantId = CodeArt.Poc.Core.Tenants.TenantId;
+using TenantName = CodeArt.Poc.Core.Tenants.TenantName;
 
 namespace CodeArt.Poc.Storage.Common;
 

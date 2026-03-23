@@ -23,7 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\CodeArt.Poc.Primitives\CodeArt.Poc.Primitives.csproj" />
+    <ProjectReference Include="..\..\src\CodeArt.Poc.Core\CodeArt.Poc.Core.csproj" />
   </ItemGroup>
 
 </Project>

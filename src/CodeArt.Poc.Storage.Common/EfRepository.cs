@@ -1,10 +1,12 @@
 using System.Numerics;
-using CodeArt.Poc.Infrastructure.Abstractions;
+
+using CodeArt.Poc.Core;
+
 using Microsoft.EntityFrameworkCore;
 
 namespace CodeArt.Poc.Storage.Common;
 
-internal class EfRepository<TEntity, TContext, TId>(TContext context) : IRepository<TEntity, TId>
+internal sealed class EfRepository<TEntity, TContext, TId>(TContext context) : IRepository<TEntity, TId>
     where TId : IEquatable<TId>, IEqualityOperators<TId, TId, bool>
     where TEntity : class, IEntity<TId>, new()
     where TContext : DbContext

@@ -4,7 +4,7 @@ using JetBrains.Annotations;
 
 using Vogen;
 
-namespace CodeArt.Poc.Primitives;
+namespace CodeArt.Poc.Core;
 
 [ValueObject<string>]
 public readonly partial struct PersonName
@@ -36,13 +36,13 @@ public readonly partial struct PersonName
         switch (input)
         {
             case { Length : 0 }:
-                return Validation.Invalid(ValidationErrors.PersonNameCannotBeEmpty);
+                return Validation.Invalid("Person name cannot be empty");
             case { Length : > MaxLength }:
-                return Validation.Invalid(string.Format(ValidationErrors.PersonNameTooLong, MaxLength));
+                return Validation.Invalid($"Person name cannot be longer than {MaxLength} characters");
             default:
                 {
                     var isValid = Regex.IsMatch(input);
-                    return isValid ? Validation.Ok : Validation.Invalid(ValidationErrors.PersonNameInvalid);
+                    return isValid ? Validation.Ok : Validation.Invalid("Person name contains invalid characters. Only letters, dashes and apostrophes are allowed. Must not start or end with a dash or apostrophe or have two consecutive dashes or apostrophes.");
                 }
         }
     }

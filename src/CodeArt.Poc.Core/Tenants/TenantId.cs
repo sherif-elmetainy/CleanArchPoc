@@ -1,9 +1,11 @@
-﻿using Vogen;
+﻿using System.Numerics;
 
-namespace CodeArt.Poc.Primitives;
+using Vogen;
+
+namespace CodeArt.Poc.Core.Tenants;
 
 [ValueObject<Guid>]
-public readonly partial struct TenantId
+public readonly partial struct TenantId : IEqualityOperators<TenantId, TenantId, bool>
 {
     public static TenantId New() => From(Guid.CreateVersion7());
     

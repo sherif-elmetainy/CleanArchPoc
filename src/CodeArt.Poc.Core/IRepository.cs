@@ -1,6 +1,6 @@
 using System.Numerics;
 
-namespace CodeArt.Poc.Infrastructure.Abstractions;
+namespace CodeArt.Poc.Core;
 
 public interface IRepository<TEntity, in TId>
     where TEntity : class, IEntity<TId>, new()

@@ -12,9 +12,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\CodeArt.Poc.Entities\CodeArt.Poc.Entities.csproj" />
-      <ProjectReference Include="..\CodeArt.Poc.Infrastructure.Abstractions\CodeArt.Poc.Infrastructure.Abstractions.csproj" />
-      <ProjectReference Include="..\CodeArt.Poc.Primitives\CodeArt.Poc.Primitives.csproj" />
+      <ProjectReference Include="..\CodeArt.Poc.Core\CodeArt.Poc.Core.csproj" />
     </ItemGroup>
 
 </Project>

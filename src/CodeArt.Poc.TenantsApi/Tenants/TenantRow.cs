@@ -1,4 +1,5 @@
-﻿using CodeArt.Poc.Primitives;
+﻿
+using CodeArt.Poc.Core.Tenants;
 
 namespace CodeArt.Poc.TenantsApi.Tenants;
 

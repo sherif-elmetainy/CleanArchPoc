@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-using CodeArt_Poc_Primitives;
+using CodeArt_Poc_Core;
 
 using CodeArt.Poc.TenantsApi.Tenants;
 

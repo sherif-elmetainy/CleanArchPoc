@@ -1,6 +1,5 @@
 ﻿
 using CodeArt.Poc.Aspire.ServiceDefaults;
-using CodeArt.Poc.Infrastructure.Abstractions;
 using CodeArt.Poc.Storage.Common;
 using CodeArt.Poc.Storage.Postgresql;
 

@@ -1,7 +1,10 @@
-﻿using CodeArt.Poc.Entities;
-using CodeArt.Poc.Primitives;
+﻿using CodeArt.Poc.Core;
+using CodeArt.Poc.Core.Tenants;
 
 using Microsoft.EntityFrameworkCore;
+
+using TenantId = CodeArt.Poc.Core.Tenants.TenantId;
+using TenantName = CodeArt.Poc.Core.Tenants.TenantName;
 
 namespace CodeArt.Poc.Storage.Common;
 

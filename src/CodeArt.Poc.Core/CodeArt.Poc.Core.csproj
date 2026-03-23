@@ -7,7 +7,9 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\CodeArt.Poc.Primitives\CodeArt.Poc.Primitives.csproj" />
+      <PackageReference Include="CaseConverter" />
+      <PackageReference Include="JetBrains.Annotations" />
+      <PackageReference Include="Vogen" />
     </ItemGroup>
 
 </Project>

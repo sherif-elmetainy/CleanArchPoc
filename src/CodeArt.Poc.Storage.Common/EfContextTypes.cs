@@ -1,6 +1,7 @@
 using System.Collections.Frozen;
-using System.Reflection;
-using CodeArt.Poc.Infrastructure.Abstractions;
+
+using CodeArt.Poc.Core;
+
 using Microsoft.EntityFrameworkCore;
 
 namespace CodeArt.Poc.Storage.Common;
@@ -10,9 +11,14 @@ internal static class EfContextTypes
     private static readonly FrozenSet<Type> s_mainContextTypes = GetTypesInContext<PocMainDbContext>();
     private static readonly FrozenSet<Type> s_entityTypes = GetTypesInContext<PocDbContext>();
 
-    public static bool IsMainContextType()
+    public static bool IsMainContextType(Type type)
     {
-        return s_mainContextTypes.Any();
+        return s_mainContextTypes.Contains(type);
+    }
+
+    public static bool IsEntityType(Type type)
+    {
+        return s_entityTypes.Contains(type);
     }
 
     private static FrozenSet<Type> GetTypesInContext<TContext>()
@@ -21,8 +27,7 @@ internal static class EfContextTypes
         var result = new HashSet<Type>();
         var entityTypes = typeof(TContext)
             .GetProperties()
-            .Where(p => p is { CanRead: true, PropertyType.IsConstructedGenericType: true } &&
-                        p.PropertyType.GenericTypeArguments.Length == 1 &&
+            .Where(p => p is { CanRead: true, PropertyType: { IsConstructedGenericType: true, GenericTypeArguments.Length: 1 } } &&
                         p.PropertyType.GetGenericTypeDefinition() == typeof(DbSet<>))
             .Select(p => p.PropertyType.GenericTypeArguments[0])
             .Where(t => t.IsEntity())
@@ -46,7 +51,7 @@ internal static class EfContextTypes
 
         private bool IsEntityInterface()
         {
-            return type.IsConstructedGenericType && type.GetGenericTypeDefinition() == typeof(IEntity<>)
+            return type.IsConstructedGenericType && type.GetGenericTypeDefinition() == typeof(IEntity<>);
         }
     }
 }

@@ -19,12 +19,8 @@
 
     <ItemGroup>
       <ProjectReference Include="..\CodeArt.Poc.Aspire.ServiceDefaults\CodeArt.Poc.Aspire.ServiceDefaults.csproj" />
-      <ProjectReference Include="..\CodeArt.Poc.Entities\CodeArt.Poc.Entities.csproj" />
+      <ProjectReference Include="..\CodeArt.Poc.Core\CodeArt.Poc.Core.csproj" />
       <ProjectReference Include="..\CodeArt.Poc.Storage.Common\CodeArt.Poc.Storage.Common.csproj" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Folder Include="MainMigrations\" />
     </ItemGroup>
 
 </Project>

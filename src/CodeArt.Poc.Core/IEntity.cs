@@ -1,6 +1,6 @@
 using System.Numerics;
 
-namespace CodeArt.Poc.Infrastructure.Abstractions;
+namespace CodeArt.Poc.Core;
 
 public interface IEntity<TId> where TId : IEquatable<TId>, IEqualityOperators<TId, TId, bool>
 {

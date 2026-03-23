@@ -1,5 +1,6 @@
 ﻿using CodeArt.Poc.Aspire.ServiceDefaults;
-using CodeArt.Poc.Infrastructure.Abstractions;
+using CodeArt.Poc.Core;
+using CodeArt.Poc.Core.Tenants;
 
 using Microsoft.EntityFrameworkCore;
 
@@ -14,9 +15,9 @@ public static class Endpoints
             var group = app.MapGroup($"{ServiceConstants.Api.BasePath}/{ServiceConstants.Api.Version}/tenants")
                 .WithTags("Tenants");
             
-            group.MapGet("/", async (ITenantsRepository repo, CancellationToken cancellationToken) =>
+            group.MapGet("/", async (IRepository<Tenant, TenantId> repo, CancellationToken cancellationToken) =>
             {
-                var tenants = await repo.GetTenants()
+                var tenants = await repo.GetQueryable()
                     .Select(t => new TenantRow()
                     {
                         Id = t.Id,
