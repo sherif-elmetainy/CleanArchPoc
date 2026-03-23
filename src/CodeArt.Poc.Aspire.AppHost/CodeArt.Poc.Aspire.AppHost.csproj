@@ -14,6 +14,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\CodeArt.Poc.Aspire.ServiceDefaults\CodeArt.Poc.Aspire.ServiceDefaults.csproj" ReferenceOutputAssembly="true" />
+      <ProjectReference Include="..\CodeArt.Poc.TenantsApi\CodeArt.Poc.TenantsApi.csproj" />
       <ProjectReference Include="..\CodeArt.Poc.WebApi\CodeArt.Poc.WebApi.csproj" />
     </ItemGroup>
 

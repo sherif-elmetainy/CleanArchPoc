@@ -11,4 +11,8 @@ builder.AddProject<Projects.CodeArt_Poc_WebApi>(ServiceConstants.Api.Name)
     .WaitFor(postgresMainDb)
     .WithReference(postgresMainDb);
 
+builder.AddProject<Projects.CodeArt_Poc_TenantsApi>(ServiceConstants.Api.TenantsName)
+    .WaitFor(postgresMainDb)
+    .WithReference(postgresMainDb);
+
 builder.Build().Run();

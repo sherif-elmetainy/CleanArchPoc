@@ -8,6 +8,7 @@
   </Folder>
   <Folder Name="/Scripts/">
     <File Path="scripts/main-migrate.sh" />
+    <File Path="scripts/migrate.sh" />
   </Folder>
   <Project Path="src/CodeArt.Poc.Aspire.AppHost/CodeArt.Poc.Aspire.AppHost.csproj" />
   <Project Path="src/CodeArt.Poc.Aspire.ServiceDefaults/CodeArt.Poc.Aspire.ServiceDefaults.csproj" />
@@ -16,6 +17,7 @@
   <Project Path="src/CodeArt.Poc.Primitives/CodeArt.Poc.Primitives.csproj" />
   <Project Path="src/CodeArt.Poc.Storage.Common/CodeArt.Poc.Storage.Common.csproj" />
   <Project Path="src/CodeArt.Poc.Storage.Postgresql/CodeArt.Poc.Storage.Postgresql.csproj" />
+  <Project Path="src/CodeArt.Poc.TenantsApi/CodeArt.Poc.TenantsApi.csproj" />
   <Project Path="src/CodeArt.Poc.WebApi/CodeArt.Poc.WebApi.csproj" />
   <Project Path="tests/CodeArt.Poc.Primitives.Tests/CodeArt.Poc.Primitives.Tests.csproj" />
 </Solution>

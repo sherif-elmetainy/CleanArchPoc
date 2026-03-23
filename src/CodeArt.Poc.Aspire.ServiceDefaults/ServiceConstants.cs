@@ -16,5 +16,6 @@ public static class ServiceConstants
         public const string Version = "v1";
         public const string BasePath = "/api";
         public const string Name = "PocWebApi";
+        public const string TenantsName = "TenantsWebApi";
     }
 }
