@@ -4,7 +4,11 @@ using CodeArt.Poc.Aspire.ServiceDefaults;
 var builder = DistributedApplication.CreateBuilder(args);
 
 var postgres = builder.AddPostgres(ServiceConstants.Db.Postgres.ServiceName)
-    .WithPgAdmin();
+    .WithDataVolume(ServiceConstants.Db.Postgres.VolumeName)
+    .WithPgAdmin((c) =>
+    {
+        c.WithVolume(ServiceConstants.Db.Postgres.PgAdminVolumeName, "/var/lib/pgadmin");
+    });
 var postgresMainDb = postgres.AddDatabase(ServiceConstants.Db.Postgres.MainDbName);
 
 builder.AddProject<Projects.CodeArt_Poc_WebApi>(ServiceConstants.Api.Name)

@@ -7,7 +7,9 @@ public static class ServiceConstants
         public static class Postgres
         {
             public const string ServiceName = "pocPostgresqlService";
-            public const string MainDbName = "pocMainDb";    
+            public const string MainDbName = "pocMainDb";
+            public const string VolumeName = "pocPgData";
+            public const string PgAdminVolumeName = "pocPgAdmin";
         }
     }
 
