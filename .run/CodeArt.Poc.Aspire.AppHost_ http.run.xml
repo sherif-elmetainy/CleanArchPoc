@@ -1,0 +1,28 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="CodeArt.Poc.Aspire.AppHost: http" type="AspireHostConfiguration" factoryName="Aspire Host" activateToolWindowBeforeRun="false">
+    <option name="PROJECT_FILE_PATH" value="$PROJECT_DIR$/src/CodeArt.Poc.Aspire.AppHost/CodeArt.Poc.Aspire.AppHost.csproj" />
+    <option name="PROJECT_TFM" value="net10.0" />
+    <option name="LAUNCH_PROFILE_NAME" value="http" />
+    <option name="TRACK_ARGUMENTS" value="1" />
+    <option name="ARGUMENTS" value="" />
+    <option name="TRACK_WORKING_DIRECTORY" value="1" />
+    <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/CodeArt.Poc.Aspire.AppHost" />
+    <option name="TRACK_ENVS" value="1" />
+    <envs>
+      <env name="ASPNETCORE_ENVIRONMENT" value="Development" />
+      <env name="DOTNET_ENVIRONMENT" value="Development" />
+      <env name="ASPIRE_DASHBOARD_OTLP_ENDPOINT_URL" value="http://localhost:19007" />
+      <env name="ASPIRE_DASHBOARD_MCP_ENDPOINT_URL" value="http://localhost:18016" />
+      <env name="ASPIRE_RESOURCE_SERVICE_ENDPOINT_URL" value="http://localhost:20259" />
+      <env name="DOTNET_LAUNCH_PROFILE" value="http" />
+      <env name="ASPNETCORE_URLS" value="http://localhost:15178" />
+    </envs>
+    <option name="USE_PODMAN_RUNTIME" value="0" />
+    <option name="TRACK_URL" value="1" />
+    <option name="TRACK_BROWSER_LAUNCH" value="1" />
+    <browser url="http://localhost:15178" name="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" start="true" />
+    <method v="2">
+      <option name="Build" />
+    </method>
+  </configuration>
+</component>
