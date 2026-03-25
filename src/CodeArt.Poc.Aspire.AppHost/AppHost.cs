@@ -1,4 +1,3 @@
-
 using CodeArt.Poc.Aspire.ServiceDefaults;
 
 var builder = DistributedApplication.CreateBuilder(args);
@@ -19,19 +18,20 @@ var tenantsApi = builder.AddProject<Projects.CodeArt_Poc_TenantsApi>(ServiceCons
     .WaitFor(postgresMainDb)
     .WithReference(postgresMainDb);
 
-builder.AddJavaScriptApp("tenants-frontend", "../frontend")
+var tenantsFront = builder.AddJavaScriptApp("tenants-frontend", "../frontend")
     .WithPnpm()
     .WithBuildScript("build:booking")
     .WithRunScript("start:tenants")
     .WithReference(tenantsApi)
-    .WithHttpsEndpoint(port: 15172, targetPort: 15176);
+    .WithHttpsEndpoint(name: "https", targetPort: 15176);
 
-builder.AddJavaScriptApp("booking-frontend", "../frontend")
+var bookingFront = builder.AddJavaScriptApp("booking-frontend", "../frontend")
     .WithPnpm()
     .WithBuildScript("build:booking")
     .WithRunScript("start:booking")
     .WithReference(api)
-    .WithHttpsEndpoint(port: 15172, targetPort: 15176);
+    .WithHttpsEndpoint(name: "https", targetPort: 15175);
 
-
+tenantsApi.WithEnvironment("CORS__ALLOWEDORIGINS__0", tenantsFront.GetEndpoint("https").Property(EndpointProperty.Url));
+api.WithEnvironment("CORS__ALLOWEDORIGINS__0", bookingFront.GetEndpoint("https").Property(EndpointProperty.Url));
 builder.Build().Run();

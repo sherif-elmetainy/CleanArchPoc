@@ -1,0 +1,5 @@
+@for (tenant of (tenants | async); track tenant.id) {
+  <div>
+    {{tenant.id}}: {{ tenant.name }}
+  </div>
+}

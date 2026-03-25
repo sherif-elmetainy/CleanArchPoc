@@ -18,7 +18,7 @@
       "prefix": "tenants-app",
       "architect": {
         "build": {
-          "builder": "@angular/build:application",
+          "builder": "@ngx-env/builder:application",
           "options": {
             "browser": "projects/tenants/src/main.ts",
             "tsConfig": "projects/tenants/tsconfig.app.json",
@@ -29,12 +29,12 @@
                 "input": "projects/tenants/public"
               }
             ],
+            "ngxEnv": {
+              "prefix": "(TENANTSWEBAPI|)_"
+            },
             "styles": ["projects/tenants/src/styles.scss"],
             "server": "projects/tenants/src/main.server.ts",
             "outputMode": "server",
-            "security": {
-              "allowedHosts": []
-            },
             "ssr": {
               "entry": "projects/tenants/src/server.ts"
             }
@@ -64,7 +64,7 @@
           "defaultConfiguration": "production"
         },
         "serve": {
-          "builder": "@angular/build:dev-server",
+          "builder": "@ngx-env/builder:dev-server",
           "options": {
             "port": 15176,
             "sslKey": "ssl/localhost.key",
@@ -82,7 +82,8 @@
           "defaultConfiguration": "development"
         },
         "test": {
-          "builder": "@angular/build:unit-test"
+          "builder": "@ngx-env/builder:unit-test",
+          "options": {}
         }
       }
     },
@@ -98,7 +99,7 @@
       "prefix": "booking-app",
       "architect": {
         "build": {
-          "builder": "@angular/build:application",
+          "builder": "@ngx-env/builder:application",
           "options": {
             "browser": "projects/booking/src/main.ts",
             "tsConfig": "projects/booking/tsconfig.app.json",
@@ -112,9 +113,6 @@
             "styles": ["projects/booking/src/styles.scss"],
             "server": "projects/booking/src/main.server.ts",
             "outputMode": "server",
-            "security": {
-              "allowedHosts": []
-            },
             "ssr": {
               "entry": "projects/booking/src/server.ts"
             }
@@ -144,7 +142,7 @@
           "defaultConfiguration": "production"
         },
         "serve": {
-          "builder": "@angular/build:dev-server",
+          "builder": "@ngx-env/builder:dev-server",
           "options": {
             "port": 15175,
             "sslKey": "ssl/localhost.key",
@@ -162,7 +160,8 @@
           "defaultConfiguration": "development"
         },
         "test": {
-          "builder": "@angular/build:unit-test"
+          "builder": "@ngx-env/builder:unit-test",
+          "options": {}
         }
       }
     }

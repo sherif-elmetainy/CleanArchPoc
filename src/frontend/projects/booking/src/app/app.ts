@@ -9,4 +9,6 @@ import { RouterOutlet } from '@angular/router';
 })
 export class App {
   protected readonly title = signal('booking');
+
+  readonly url = import.meta.env.WEBAPI_HTTPS;
 }

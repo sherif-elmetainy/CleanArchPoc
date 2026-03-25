@@ -1,4 +1,3 @@
-using CodeArt.Poc.Storage.Common;
 using CodeArt.Poc.TenantsApi;
 using CodeArt.Poc.TenantsApi.Tenants;
 
@@ -9,6 +8,16 @@ builder.AddServiceDefaults();
 
 builder.AddPostgres(false);
 builder.Services.AddStorageServices();
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(policyBuilder =>
+    {
+        var origins = builder.Configuration
+            .GetSection("Cors:AllowedOrigins")
+            .Get<string[]>() ?? [];
+        policyBuilder.WithOrigins(origins).AllowAnyMethod().AllowAnyHeader().AllowCredentials();
+    });
+});
 
 // Configure the JSON options to use the generated context
 builder.Services.ConfigureHttpJsonOptions(options =>
@@ -28,6 +37,8 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.MapStaticAssets();
+
+app.UseCors();
 
 app.MapDefaultEndpoints();
 
