@@ -11,12 +11,27 @@ var postgres = builder.AddPostgres(ServiceConstants.Db.Postgres.ServiceName)
     });
 var postgresMainDb = postgres.AddDatabase(ServiceConstants.Db.Postgres.MainDbName);
 
-builder.AddProject<Projects.CodeArt_Poc_WebApi>(ServiceConstants.Api.Name)
+var api = builder.AddProject<Projects.CodeArt_Poc_WebApi>(ServiceConstants.Api.Name)
     .WaitFor(postgresMainDb)
     .WithReference(postgresMainDb);
 
-builder.AddProject<Projects.CodeArt_Poc_TenantsApi>(ServiceConstants.Api.TenantsName)
+var tenantsApi = builder.AddProject<Projects.CodeArt_Poc_TenantsApi>(ServiceConstants.Api.TenantsName)
     .WaitFor(postgresMainDb)
     .WithReference(postgresMainDb);
+
+builder.AddJavaScriptApp("tenants-frontend", "../frontend")
+    .WithPnpm()
+    .WithBuildScript("build:booking")
+    .WithRunScript("start:tenants")
+    .WithReference(tenantsApi)
+    .WithHttpsEndpoint(port: 15172, targetPort: 15176);
+
+builder.AddJavaScriptApp("booking-frontend", "../frontend")
+    .WithPnpm()
+    .WithBuildScript("build:booking")
+    .WithRunScript("start:booking")
+    .WithReference(api)
+    .WithHttpsEndpoint(port: 15172, targetPort: 15176);
+
 
 builder.Build().Run();

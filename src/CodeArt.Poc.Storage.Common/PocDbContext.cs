@@ -18,6 +18,9 @@ public abstract class PocDbContext(DbContextOptions options) : DbContext(options
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        
+        modelBuilder.Entity<Customer>().HasData(new Customer()
+        {
+            Id = CustomerId.From(1), FirstName = PersonName.From("Sherif"), LastName = PersonName.From("El-Metainy")
+        });
     }
 }

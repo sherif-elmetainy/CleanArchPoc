@@ -18,11 +18,7 @@ public static class Endpoints
             group.MapGet("/", async (IRepository<Tenant, TenantId> repo, CancellationToken cancellationToken) =>
             {
                 var tenants = await repo.GetQueryable()
-                    .Select(t => new TenantRow()
-                    {
-                        Id = t.Id,
-                        Name = t.Name
-                    }).ToListAsync(cancellationToken);
+                    .Select(t => new TenantRow(t.Id, t.Name)).ToListAsync(cancellationToken);
                 return Results.Ok(tenants);
             });
 

@@ -65,6 +65,12 @@
         },
         "serve": {
           "builder": "@angular/build:dev-server",
+          "options": {
+            "port": 15176,
+            "sslKey": "ssl/localhost.key",
+            "sslCert": "ssl/localhost.crt",
+            "ssl": true
+          },
           "configurations": {
             "production": {
               "buildTarget": "tenants:build:production"
@@ -139,6 +145,12 @@
         },
         "serve": {
           "builder": "@angular/build:dev-server",
+          "options": {
+            "port": 15175,
+            "sslKey": "ssl/localhost.key",
+            "sslCert": "ssl/localhost.crt",
+            "ssl": true
+          },
           "configurations": {
             "production": {
               "buildTarget": "booking:build:production"
