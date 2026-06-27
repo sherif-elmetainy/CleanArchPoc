@@ -15,6 +15,10 @@ public static class EfCoreConventions
             configurationBuilder.Properties<PersonName>()
                 .HaveMaxLength(PersonName.MaxLength)
                 .AreUnicode();
+
+            configurationBuilder.Properties<EmailAddress>()
+                .HaveMaxLength(EmailAddress.MaxLength)
+                .AreUnicode();
         }
         
         public void RegisterAllMainPrimitives()

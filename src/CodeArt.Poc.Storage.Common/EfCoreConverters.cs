@@ -6,6 +6,7 @@ namespace CodeArt.Poc.Storage.Common;
 
 [EfCoreConverter<CustomerId>]
 [EfCoreConverter<PersonName>]
+[EfCoreConverter<EmailAddress>]
 internal static partial class EfCoreConverters
 {
 }

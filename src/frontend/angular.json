@@ -110,6 +110,9 @@
                 "input": "projects/booking/public"
               }
             ],
+            "ngxEnv": {
+              "prefix": "(POCWEBAPI|)_"
+            },
             "styles": ["projects/booking/src/styles.scss"],
             "server": "projects/booking/src/main.server.ts",
             "outputMode": "server",

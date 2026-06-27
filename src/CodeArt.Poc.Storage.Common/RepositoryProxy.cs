@@ -13,34 +13,13 @@ internal sealed class RepositoryProxy<TEntity, TId>(
 {
     private readonly IRepository<TEntity, TId> _repository = repositoryFactory.CreateRepository(serviceProvider);
 
+    public IQueryable<TEntity> Query => _repository.Query;
+    public void Add(TEntity entity) => _repository.Add(entity);
 
-    public IQueryable<TEntity> GetQueryable()
-    {
-        return _repository.GetQueryable();
-    }
+    public void Delete(TEntity entity) => _repository.Delete(entity);
 
-    public Task<TEntity> AddAsync(TEntity entity, CancellationToken cancellationToken)
-    {
-        return _repository.AddAsync(entity, cancellationToken);
-    }
+    public void DeleteById(TId id) => _repository.DeleteById(id);
 
-    public Task<TEntity> UpdateAsync(TEntity entity, CancellationToken cancellationToken)
-    {
-        return _repository.UpdateAsync(entity, cancellationToken);
-    }
+    public Task<int> SaveChangesAsync(CancellationToken cancellationToken) => _repository.SaveChangesAsync(cancellationToken);
 
-    public Task<TEntity> DeleteAsync(TEntity entity, CancellationToken cancellationToken)
-    {
-        return _repository.DeleteAsync(entity, cancellationToken);
-    }
-
-    public ValueTask<TEntity?> GetByIdAsync(TId id, CancellationToken cancellationToken)
-    {
-        return _repository.GetByIdAsync(id, cancellationToken);
-    }
-
-    public Task<bool> DeleteById(TId id, CancellationToken cancellationToken)
-    {
-        return _repository.DeleteById(id, cancellationToken);
-    }
 }

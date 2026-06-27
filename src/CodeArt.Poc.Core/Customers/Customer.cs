@@ -6,4 +6,6 @@ public class Customer : IEntity<CustomerId>
 
     public PersonName FirstName { get; set; }
     public PersonName LastName { get; set; }
+
+    public EmailAddress Email { get; set; }
 }

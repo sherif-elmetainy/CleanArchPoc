@@ -10,6 +10,7 @@ public static class Endpoints
 {
     extension(IEndpointRouteBuilder app)
     {
+
         public IEndpointRouteBuilder MapTenantEndpoints()
         {
             var group = app.MapGroup($"{ServiceConstants.Api.BasePath}/{ServiceConstants.Api.Version}/tenants")
@@ -17,7 +18,7 @@ public static class Endpoints
             
             group.MapGet("/", async (IRepository<Tenant, TenantId> repo, CancellationToken cancellationToken) =>
             {
-                var tenants = await repo.GetQueryable()
+                var tenants = await repo.Query
                     .Select(t => new TenantRow(t.Id, t.Name)).ToListAsync(cancellationToken);
                 return Results.Ok(tenants);
             });

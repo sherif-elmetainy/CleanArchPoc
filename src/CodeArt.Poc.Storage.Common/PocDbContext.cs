@@ -11,16 +11,17 @@ public abstract class PocDbContext(DbContextOptions options) : DbContext(options
 
     protected override void ConfigureConventions(ModelConfigurationBuilder configurationBuilder)
     {
-        base.ConfigureConventions(configurationBuilder);
-        configurationBuilder.RegisterAllInEfCoreConverters();
-        configurationBuilder.RegisterAllPrimitives();
+        1
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Customer>().HasData(new Customer()
         {
-            Id = CustomerId.From(1), FirstName = PersonName.From("Sherif"), LastName = PersonName.From("El-Metainy")
+            Id = CustomerId.From(1),
+            FirstName = PersonName.From("Sherif"),
+            LastName = PersonName.From("El-Metainy"),
+            Email = EmailAddress.From("sherif.elmetainy@example.com")
         });
     }
 }

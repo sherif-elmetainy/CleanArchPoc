@@ -15,4 +15,15 @@
   <ItemGroup>
     <None Include="Properties\launchSettings.json" />
   </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Mediator.SourceGenerator">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Validly" />
+    <PackageReference Include="Validly.Extensions.AspNetCore" />
+    <PackageReference Include="Validly.Extensions.Validators" />
+    <PackageReference Include="Validly.SourceGenerator" />
+  </ItemGroup>
 </Project>

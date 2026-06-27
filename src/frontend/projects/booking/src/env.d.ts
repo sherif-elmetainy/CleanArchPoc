@@ -3,7 +3,7 @@ declare interface Env {
   readonly NODE_ENV: string;
   // Replace the following with your own environment variables.
   // Example: NGX_VERSION: string;
-  WEBAPI_HTTPS: string;
+  POCWEBAPI_HTTPS: string;
 }
 
 // Choose how to access the environment variables.
